@@ -1,7 +1,12 @@
 import React, { FC } from 'react'
 
+export interface Options {
+  text: string
+  value: string
+}
+
 export type FilterProps = {
-  options?: string[]
+  options?: Options[]
   value?: string
   onFilter: (filter: string) => void
 }
@@ -14,10 +19,11 @@ const Filter: FC<FilterProps> = ({options, onFilter}) => {
 
   return (
     <select onChange={handleOnChange}>
-      {options?.map(option => {
+      <option value="">Select a option</option>
+      {options?.map((option, index) => {
         return (
-          <option key={option} value={option}>
-            {option}
+          <option key={option.text + index} value={option.value}>
+            {option.text}
           </option>
         )
       })}
