@@ -11,11 +11,16 @@ const ContinentFilter: FC<ContinentFilterProps> = ({ onFilterChange }) => {
 
   const { data, loading, error } = useContinents()
 
-  const continents = data?.continents.map(continent => continent.name)
+  const continents = data?.continents
 
+  const options = continents?.map(continent => ({
+    value: continent.code,
+    text: continent.name
+  }))
+  
 
   return (
-    <Filter options={continents} onFilter={onFilterChange} />
+    <Filter options={options} onFilter={onFilterChange} />
   )
 }
 
