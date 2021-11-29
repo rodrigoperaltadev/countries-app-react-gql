@@ -11,7 +11,7 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-in-out;
   cursor: pointer;
-  padding: 0.5rem 2rem;
+  padding: 20px 20px;
 }
 
 .country-card:hover {
@@ -34,11 +34,9 @@
 }
 
 .country-card__code {
-  padding: 0.8rem;
-  height: 1rem;
-  width: 1rem;
+  padding: 16px;
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 16px;
   background-color: #61dafb;
   font-weight: bold;
   border-radius: 50%;

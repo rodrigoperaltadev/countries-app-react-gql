@@ -1,0 +1,15 @@
+.detail-row {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1rem;
+  gap: 0.5rem;
+}
+
+.detail-row label {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.detail-row span {
+  font-size: 1rem;
+}
