@@ -1,5 +1,7 @@
-import { CountriesList, FilterCountries } from '../components'
-import { useCountries } from '../hooks/useCountries'
+import { CountriesList, FilterCountries } from '../../components'
+import EmptyComponent from '../../components/EmptyComponent'
+import Loading from '../../components/Loading'
+import { useCountries } from '../../hooks/useCountries'
 
 export type Filters = {
   continent: string
@@ -9,7 +11,7 @@ export type Filters = {
 const Home = () => {
   const { loading, countries, handleFilterChange, handleSearchChange, getFilteredCountries  } = useCountries()
 
-  if (loading) return <p>Loading...</p>
+  if (loading) return <Loading />
 
   return (
     <div>

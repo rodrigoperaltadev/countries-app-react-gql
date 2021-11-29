@@ -4,6 +4,16 @@ export interface Country {
   code: string
   name: string
   currency: string
+  continent: Continent
+  languages: Language[]
+  capital: string
+}
+
+export interface Language {
+  code: string
+  name: string
+  native: string
+  rtl: boolean
 }
 
 export interface Countries {

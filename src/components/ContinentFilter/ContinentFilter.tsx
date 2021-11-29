@@ -20,7 +20,7 @@ const ContinentFilter: FC<ContinentFilterProps> = ({ onFilterChange }) => {
   
 
   return (
-    <Filter options={options} onFilter={onFilterChange} />
+    <Filter placeholder="Filtrar por continente" options={options} onFilter={onFilterChange} />
   )
 }
 

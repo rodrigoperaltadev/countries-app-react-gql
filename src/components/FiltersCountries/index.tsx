@@ -1,8 +1,11 @@
 import { FC } from "react"
+import { Form } from "react-bootstrap"
 import { ContinentFilter } from ".."
 import { useFilterCountries } from "../../hooks/useFilterCountries"
-import { Filters } from "../../views/Home"
+import { Filters } from "../../views/Home/Home"
 import Filter from '../Filter'
+
+import './filterCountries.css'
 
 export type FiltersCountryProps = {
   onChangeFilter: (filters: Filters) => void
@@ -28,10 +31,10 @@ const FiltersCountry: FC<FiltersCountryProps> = ({ onChangeFilter, onSearchChang
   const options = currencies.map(currency => ({ text: currency, value: currency }))
   
   return (
-    <div>
+    <div className="filter-countries">
       <ContinentFilter onFilterChange={handleChangeContinent} />
-      <Filter options={options} value={filters.currency} onFilter={handleChangeCurrency}/>
-      <input type="text" onChange={(e) => onSearchChange(e.target.value)} />
+      <Filter placeholder="Filtrar por moneda" options={options} value={filters.currency} onFilter={handleChangeCurrency}/>
+      <Form.Control type="text" placeholder="Buscar" onChange={(e) => onSearchChange(e.target.value)} />
     </div>
   )
 }
