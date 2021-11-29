@@ -4,12 +4,13 @@ import { Countinents, ResponseService } from '../../interfaces'
 
 
 export const useContinents = (): ResponseService<Countinents> => {
-  const { data, loading, error } = useQuery<Countinents>(COUNTINENTS);
+  const { data, loading, error, refetch } = useQuery<Countinents>(COUNTINENTS);
 
   return {
     data,
     loading,
-    error
+    error,
+    refetch
   }
  
 }
