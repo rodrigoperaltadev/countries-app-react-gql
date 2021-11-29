@@ -9,7 +9,7 @@ export type ContinentFilterProps = {
 
 const ContinentFilter: FC<ContinentFilterProps> = ({ onFilterChange }) => {
 
-  const { data, loading, error } = useContinents()
+  const { data } = useContinents()
 
   const continents = data?.continents
 

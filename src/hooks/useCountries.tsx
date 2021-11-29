@@ -1,23 +1,41 @@
-import { useCallback, useEffect, useState } from "react";
-import { Country } from "../interfaces";
+import { useCallback, useMemo, useState } from "react";
 import { useCountriesQuery } from '../services/api'
 import { Filters } from "../views/Home";
 
 export const useCountries = () => {
-  const [countries, setCountries] = useState<Country[]>([]);
-  const [currencies, setCurrencies] = useState<string[]>([]);
-  const [filteredCountries, setFilteredCountries] = useState<Country[]>([]);
+  const { data, loading, refetch: fetchCountries } = useCountriesQuery()
+  const [search, setSearch] = useState<string>('')
 
-  const { refetch, loading, data } = useCountriesQuery();
+  const countries = useMemo(() => data?.countries || [], [data])
 
-  setCountries(data?.countries || []);
 
-  const fetchCountries = async (filters: Filters = { continent: "", currency: "" }) => {
-      await refetch({variables: filters});
+  const getCountries = async (filters: Filters) => {
+    await fetchCountries(filters)
+  }
+  const handleFilterChange = (filters: Filters) => {
+    getCountries({
+      continent: filters.continent,
+      currency: filters.currency
+    })
   }
 
+  const handleSearchChange = (search: string) => {
+    console.log(search)
+    search.length > 1 ? setSearch(search) : setSearch('')
+  }
+
+  const getFilteredCountries = useCallback(() => {
+    return countries.filter(country => {
+      return country.name.toLowerCase().includes(search.toLowerCase())
+    })
+  },[countries, search])
+
   return {
-    loading, countries, filteredCountries, setFilteredCountries, currencies, fetchCountries
+    countries,
+    loading,
+    handleFilterChange,
+    handleSearchChange,
+    getFilteredCountries
   }
 
 }

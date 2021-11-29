@@ -1,6 +1,6 @@
-import { useQuery, useLazyQuery, OperationVariables } from'@apollo/client';
+import { useQuery } from'@apollo/client';
 import { COUNTRIES } from '../queries';
-import { Countries, ResponseLazyService, ResponseService } from '../../interfaces'
+import { Countries } from '../../interfaces'
 
 
 export const useCountriesQuery = () => {
