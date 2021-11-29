@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useCurrenciesQuery } from "../services/api"
-import { Filters } from "../views/Home"
+import { Filters } from "../views/Home/Home"
 
 export const useFilterCountries = () => {
   const [currencies, setCurrencies] = useState<string[]>([])

@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from "react";
 import { useCountriesQuery } from '../services/api'
-import { Filters } from "../views/Home";
+import { Filters } from "../views/Home/Home";
 
 export const useCountries = () => {
   const { data, loading, refetch: fetchCountries } = useCountriesQuery()
@@ -20,7 +20,6 @@ export const useCountries = () => {
   }
 
   const handleSearchChange = (search: string) => {
-    console.log(search)
     search.length > 1 ? setSearch(search) : setSearch('')
   }
 
