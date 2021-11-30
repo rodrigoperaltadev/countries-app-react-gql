@@ -1,5 +1,4 @@
 import { CountriesList, FilterCountries } from '../../components'
-import EmptyComponent from '../../components/EmptyComponent'
 import Loading from '../../components/Loading'
 import { useCountries } from '../../hooks/useCountries'
 
